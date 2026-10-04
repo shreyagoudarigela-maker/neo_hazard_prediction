@@ -135,41 +135,35 @@ The selected features were used for model training, hyperparameter tuning, and e
 
 The original dataset was highly imbalanced, with a significantly larger number of **Non-Hazardous** objects compared with **Hazardous** objects.
 
-To understand the effect of class imbalance and identify the best approach, the models were trained and evaluated using different data-handling strategies.
-
-The following approaches were experimented with:
+To understand the effect of class imbalance and identify a suitable approach, different data-handling strategies were experimented with.
 
 ### 1. Original Data
 
-The models were trained using the original imbalanced dataset without downsampling.
+The models were trained and tested using the original data distribution without downsampling.
 
 This approach was used as a baseline for comparison.
 
-### 2. Balanced Data
+### 2. Downsampled Training Data with Original Test Data
 
-Class balancing techniques were applied to handle the imbalance between the Hazardous and Non-Hazardous classes.
+In this approach, only the **training data** was downsampled to reduce the majority Non-Hazardous class.
 
-The models were then trained and evaluated using the balanced data.
+The **test data was kept in its original distribution**.
 
-### 3. Downsampled Training Data with Original Test Data
+This experiment was performed to evaluate how a model trained on a downsampled training set performs when tested on data with the original class distribution.
 
-The training data was downsampled to reduce the majority class, while the test data was kept in its original distribution.
+### 3. Downsampled Data
 
-This approach was used to check how well the model trained on a reduced majority class performs on the original test distribution.
+In the final approach, the majority **Non-Hazardous** class was downsampled while retaining the available **Hazardous** observations.
 
-### 4. Downsampled Data
+The number of Non-Hazardous observations was reduced to approximately **45,000**, while the Hazardous observations were retained.
 
-The majority **Non-Hazardous** class was downsampled while retaining the available **Hazardous** observations.
+The resulting dataset was shuffled before performing the train/test split.
 
-In the final downsampling approach, the number of Non-Hazardous observations was reduced to approximately **45,000**, while the Hazardous observations were retained.
-
-The resulting dataset was shuffled before the train/test split.
-
-This approach produced the best overall performance for the final Random Forest model.
+This approach produced the best performance for the final Random Forest model.
 
 ---
 
-## 🔄 Overall Machine Learning Workflow
+# 🔄 Overall Machine Learning Workflow
 
 The project follows the following workflow:
 
@@ -180,13 +174,13 @@ Exploratory Data Analysis (EDA)
        ↓
 Data Preprocessing
        ↓
-Feature Engineering
-       ↓
-Feature Selection
-       ↓
 Handling Class Imbalance
        ↓
 Train/Test Split
+       ↓
+Feature Engineering
+       ↓
+Feature Selection
        ↓
 Model Building
        ↓
@@ -194,7 +188,7 @@ Hyperparameter Tuning
        ↓
 Model Evaluation
        ↓
-Comparison of Different Data Approaches
+Comparison of Data Approaches
        ↓
 Best Model Selection
        ↓
@@ -207,7 +201,7 @@ Streamlit Deployment
 
 Multiple classification algorithms were trained using the processed dataset.
 
-Each model was evaluated using different performance metrics, including:
+The models were evaluated using different performance metrics, including:
 
 - Accuracy
 - Precision
@@ -232,28 +226,72 @@ This process helped identify the best-performing model and its suitable hyperpar
 
 ---
 
-# 📈 Model and Data Approach Comparison
+# 📈 Data Approach Comparison
 
-The models were trained and evaluated using different data approaches, including:
+The project experimented with different approaches to understand the effect of class imbalance on model performance.
 
-- Original data
-- Balanced data
-- Downsampled training data with original test data
-- Downsampled data
+The two main comparison approaches were:
 
-The performance of the models was compared using evaluation metrics, with particular importance given to the **F1-score** because of the class imbalance.
+- **Original Data**
+- **Downsampled Training Data + Original Test Data**
 
-Among the approaches tested, the **downsampled data approach with Random Forest** produced the best result for this project.
+The final **Downsampled Data** approach was then used to develop the final model after observing its performance.
 
 ---
 
-## 🏆 Best Performing Model
+## 📊 Original Data Results
 
-After training, tuning, and comparing multiple Machine Learning models and different data-handling approaches, **Random Forest** was selected as the final model.
+The following F1-scores were obtained when the models were trained and evaluated using the **original data without downsampling**:
+
+| Model               |    F1-Score |
+| ------------------- | ----------: |
+| KNN                 |        0.52 |
+| Naive Bayes         |        0.54 |
+| Decision Tree       |        0.46 |
+| Logistic Regression |        0.36 |
+| Random Forest       |        0.45 |
+|                     |             |
+| AdaBoost            | To be added |
+| Gradient Boosting   | To be added |
+| XGBoost             | To be added |
+
+The remaining model results can be added after final evaluation.
+
+---
+
+## 📊 Downsampled Training Data + Original Test Data Results
+
+In this experiment, the **training data was downsampled**, while the **test data retained the original class distribution**.
+
+The following F1-scores were obtained:
+
+| Model               | F1-Score |
+| ------------------- | -------: |
+| KNN                 |     0.43 |
+| Naive Bayes         |     0.29 |
+| Decision Tree       |     0.42 |
+| Logistic Regression |     0.25 |
+| Random Forest       |     0.48 |
+| AdaBoost            |     0.29 |
+| Gradient Boosting   |     0.34 |
+| XGBoost             |     0.35 |
+|                     |          |
+
+This experiment showed that changing the training class distribution affected the model's performance when evaluated on the original test distribution.
+
+---
+
+# 🏆 Final Best Model
+
+After experimenting with different data approaches, training multiple Machine Learning models, performing hyperparameter tuning, and comparing the evaluation results, **Random Forest** was selected as the final model.
 
 ### Final Model
 
 **Random Forest Classifier**
+
+### Best Data Approach
+
+**Downsampled Data**
 
 ### Best F1-Score
 
@@ -261,13 +299,13 @@ After training, tuning, and comparing multiple Machine Learning models and diffe
 
 The Random Forest model trained using the **downsampled data** produced the best F1-score among the approaches tested.
 
-The model was therefore selected for the final prediction system and deployment.
+Therefore, the Random Forest model was selected for the final prediction system and deployment.
 
 ---
 
-## 📊 Model Comparison
+# 📊 Final Model Comparison
 
-The following table shows the approximate F1-scores obtained from the model comparison using the selected downsampled data approach:
+The following results represent the approximate F1-scores obtained from the final downsampled data approach:
 
 | Model               | Approximate F1-Score |
 | ------------------- | -------------------: |
@@ -314,7 +352,9 @@ Non-Hazardous
 The Machine Learning model is deployed using Streamlit.
 
 **Live Application:**
-(https://neohazardprediction-mlproject.streamlit.app/)
+
+[https://neohazardprediction-mlproject.streamlit.app/](https://neohazardprediction-mlproject.streamlit.app/)
+
 ---
 
 # 💻 How to Run the Project Locally
@@ -417,7 +457,6 @@ Hazardous / Non-Hazardous
 - Feature selection
 - Class imbalance handling
 - Original data model training
-- Balanced data model training
 - Downsampled training data with original test data
 - Downsampled data model training
 - Multiple Machine Learning algorithms
@@ -493,7 +532,13 @@ The **Near-Earth Objects Hazard Prediction System** demonstrates the application
 
 The project involved **EDA, data preprocessing, feature engineering, feature selection, class imbalance handling, model training, hyperparameter tuning, and model evaluation**.
 
-Different data-handling approaches were also investigated, including **original data, balanced data, downsampled training data with original test data, and fully downsampled data**.
+Different data approaches were investigated, including training and testing on the **original data**, training on **downsampled training data with the original test data**, and training and testing using the **downsampled data**.
+
+Multiple Machine Learning classification algorithms were trained and tuned. The results from these experiments were compared using evaluation metrics, with particular importance given to the **F1-score** due to the class imbalance in the dataset.
+
+Among the approaches tested, the **Random Forest model trained using the downsampled data** produced the best performance, achieving an F1-score of approximately **0.56**.
+
+The final Random Forest model was integrated into a **Streamlit web application**, allowing users to enter Near-Earth Object information and receive a prediction of whether the object is hazardous or non-hazardous.
 
 Multiple Machine Learning classification algorithms were trained and compared. After evaluating the different approaches, the **Random Forest model trained using the downsampled data** produced the best performance, achieving an F1-score of approximately **0.56**.
 
