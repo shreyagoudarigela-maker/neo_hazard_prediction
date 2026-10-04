@@ -10,7 +10,8 @@ import pickle
 st.set_page_config(
     page_title="NEO Hazard Prediction",
     page_icon="🌍",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
 
@@ -21,9 +22,9 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-/* =========================
+/* ========================================================
    MAIN BACKGROUND
-   ========================= */
+   ======================================================== */
 
 .stApp {
     background: linear-gradient(
@@ -35,9 +36,9 @@ st.markdown("""
 }
 
 
-/* =========================
+/* ========================================================
    MAIN TITLE
-   ========================= */
+   ======================================================== */
 
 .main-title {
     font-size: 42px;
@@ -57,21 +58,20 @@ st.markdown("""
 }
 
 
-/* =========================
-   ALL NORMAL TEXT
-   ========================= */
+/* ========================================================
+   NORMAL TEXT
+   ======================================================== */
 
 .stApp p,
 .stApp span,
-.stApp label,
-.stApp div {
+.stApp label {
     color: #1f2937;
 }
 
 
-/* =========================
+/* ========================================================
    SECTION HEADINGS
-   ========================= */
+   ======================================================== */
 
 .section-title {
     font-size: 25px;
@@ -82,9 +82,9 @@ st.markdown("""
 }
 
 
-/* =========================
-   INPUT BOX
-   ========================= */
+/* ========================================================
+   NUMBER INPUT
+   ======================================================== */
 
 div[data-baseweb="input"] {
     background-color: #ffffff !important;
@@ -92,26 +92,20 @@ div[data-baseweb="input"] {
     border-radius: 10px !important;
 }
 
-
-/* Input value */
-
 div[data-baseweb="input"] input {
     color: #111111 !important;
     background-color: #ffffff !important;
     font-weight: 600 !important;
 }
 
-
-/* Placeholder */
-
 div[data-baseweb="input"] input::placeholder {
     color: #777777 !important;
 }
 
 
-/* =========================
+/* ========================================================
    SELECT BOX
-   ========================= */
+   ======================================================== */
 
 div[data-baseweb="select"] {
     background-color: #ffffff !important;
@@ -119,15 +113,9 @@ div[data-baseweb="select"] {
     border-radius: 10px !important;
 }
 
-
-/* Selectbox selected value */
-
 div[data-baseweb="select"] span {
     color: #111111 !important;
 }
-
-
-/* Dropdown text */
 
 ul[role="listbox"] {
     background-color: #ffffff !important;
@@ -138,9 +126,9 @@ ul[role="listbox"] li {
 }
 
 
-/* =========================
+/* ========================================================
    INPUT LABELS
-   ========================= */
+   ======================================================== */
 
 .stNumberInput label,
 .stSelectbox label {
@@ -150,12 +138,13 @@ ul[role="listbox"] li {
 }
 
 
-/* =========================
+/* ========================================================
    BUTTON
-   ========================= */
+   ======================================================== */
 
 .stButton > button {
     width: 100%;
+
     background: linear-gradient(
         90deg,
         #0b3d91,
@@ -173,17 +162,13 @@ ul[role="listbox"] li {
     border: none !important;
 
     box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
 }
-
-
-/* Button text */
 
 .stButton > button p {
     color: white !important;
 }
-
-
-/* Button hover */
 
 .stButton > button:hover {
     background: linear-gradient(
@@ -193,12 +178,14 @@ ul[role="listbox"] li {
     ) !important;
 
     color: white !important;
+
+    transform: scale(1.01);
 }
 
 
-/* =========================
+/* ========================================================
    INFO BOX
-   ========================= */
+   ======================================================== */
 
 div[data-testid="stAlert"] {
     background-color: #e8f4ff !important;
@@ -206,18 +193,15 @@ div[data-testid="stAlert"] {
     border-left: 5px solid #1976d2 !important;
 }
 
-
-/* Text inside info box */
-
 div[data-testid="stAlert"] p,
 div[data-testid="stAlert"] span {
     color: #12344d !important;
 }
 
 
-/* =========================
-   DATAFRAME / TABLE
-   ========================= */
+/* ========================================================
+   DATAFRAME
+   ======================================================== */
 
 div[data-testid="stDataFrame"] {
     background-color: white !important;
@@ -225,9 +209,9 @@ div[data-testid="stDataFrame"] {
 }
 
 
-/* =========================
+/* ========================================================
    METRIC BOXES
-   ========================= */
+   ======================================================== */
 
 div[data-testid="stMetric"] {
     background-color: white !important;
@@ -241,31 +225,22 @@ div[data-testid="stMetric"] {
     box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
 }
 
-
-/* Metric label */
-
 div[data-testid="stMetric"] label {
     color: #456 !important;
 }
 
-
-/* Metric value */
-
 div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
     color: #083b66 !important;
 }
-
-
-/* Metric delta */
 
 div[data-testid="stMetric"] div[data-testid="stMetricDelta"] {
     color: #333333 !important;
 }
 
 
-/* =========================
+/* ========================================================
    EXPANDER
-   ========================= */
+   ======================================================== */
 
 div[data-testid="stExpander"] {
     background-color: #ffffff !important;
@@ -273,18 +248,15 @@ div[data-testid="stExpander"] {
     border-radius: 10px !important;
 }
 
-
-/* Expander title */
-
 div[data-testid="stExpander"] summary {
     color: #083b66 !important;
     font-weight: 700 !important;
 }
 
 
-/* =========================
+/* ========================================================
    SIDEBAR
-   ========================= */
+   ======================================================== */
 
 section[data-testid="stSidebar"] {
     background: linear-gradient(
@@ -294,17 +266,11 @@ section[data-testid="stSidebar"] {
     ) !important;
 }
 
-
-/* Sidebar text */
-
 section[data-testid="stSidebar"] p,
 section[data-testid="stSidebar"] span,
 section[data-testid="stSidebar"] label {
     color: #1f2937 !important;
 }
-
-
-/* Sidebar headings */
 
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
@@ -313,9 +279,9 @@ section[data-testid="stSidebar"] h3 {
 }
 
 
-/* =========================
+/* ========================================================
    SUCCESS MESSAGE
-   ========================= */
+   ======================================================== */
 
 div[data-testid="stAlert"][kind="success"] {
     background-color: #e9f8ef !important;
@@ -328,9 +294,9 @@ div[data-testid="stAlert"][kind="success"] span {
 }
 
 
-/* =========================
+/* ========================================================
    ERROR MESSAGE
-   ========================= */
+   ======================================================== */
 
 div[data-testid="stAlert"][kind="error"] {
     background-color: #fff0f0 !important;
@@ -343,9 +309,9 @@ div[data-testid="stAlert"][kind="error"] span {
 }
 
 
-/* =========================
+/* ========================================================
    FOOTER
-   ========================= */
+   ======================================================== */
 
 .footer {
     text-align: center;
@@ -363,15 +329,32 @@ div[data-testid="stAlert"][kind="error"] span {
 # LOAD MODEL
 # =========================================================
 
+MODEL_FILE = "model_pipe (1).pkl"
+
 try:
 
-    with open("model_pipe (1).pkl", "rb") as file:
+    with open(MODEL_FILE, "rb") as file:
         model = pickle.load(file)
 
-except Exception as e:
+except FileNotFoundError:
 
-    st.error("❌ Error loading model")
-    st.error(str(e))
+    st.error(
+        "❌ Model file not found. "
+        "Please make sure 'model_pipe (1).pkl' is present in your GitHub repository."
+    )
+    st.stop()
+
+except Exception:
+
+    st.error(
+        "❌ Unable to load the machine learning model."
+    )
+
+    st.info(
+        "Please make sure the deployed scikit-learn version "
+        "matches the version used when the model was trained."
+    )
+
     st.stop()
 
 
@@ -385,7 +368,9 @@ st.markdown(
 )
 
 st.markdown(
-    '<div class="subtitle">Machine Learning Based Near-Earth Object Hazard Prediction</div>',
+    '<div class="subtitle">'
+    'Machine Learning Based Near-Earth Object Hazard Prediction'
+    '</div>',
     unsafe_allow_html=True
 )
 
@@ -418,6 +403,17 @@ with st.sidebar:
 
     st.write("🟢 Not Hazardous")
     st.write("🔴 Hazardous")
+
+    st.markdown("---")
+
+    st.subheader("📊 Features")
+
+    st.write(
+        """
+        The model uses original NEO measurements
+        together with engineered features.
+        """
+    )
 
     st.markdown("---")
 
@@ -494,8 +490,7 @@ with col2:
 # ORBITING BODY ENCODING
 # =========================================================
 
-# During training, Earth was encoded numerically.
-# Assuming Earth = 0.
+# Earth was encoded as 0 during model training.
 
 orbiting_body_encoded = 0
 
@@ -543,15 +538,15 @@ st.info(
     """
     **The model uses both original and engineered features.**
 
-    • Average Diameter = Mean of minimum and maximum diameter
+    • **Average Diameter** = Mean of minimum and maximum diameter
 
-    • Diameter Ratio = Maximum Diameter / Minimum Diameter
+    • **Diameter Ratio** = Maximum Diameter / Minimum Diameter
 
-    • Proximity Score = 1 / (Miss Distance + 1)
+    • **Proximity Score** = 1 / (Miss Distance + 1)
 
-    • Size × Miss Distance = Average Diameter × Miss Distance
+    • **Size × Miss Distance** = Average Diameter × Miss Distance
 
-    • Size × Velocity = Average Diameter × Relative Velocity
+    • **Size × Velocity** = Average Diameter × Relative Velocity
     """
 )
 
@@ -565,6 +560,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# IMPORTANT:
+# Convert every value to string for display.
+# This prevents the PyArrow error caused by
+# mixing numbers and the string "Earth" in one column.
+
 summary_df = pd.DataFrame({
 
     "Feature": [
@@ -576,18 +576,18 @@ summary_df = pd.DataFrame({
     ],
 
     "Value": [
-        est_diameter_min,
-        est_diameter_max,
-        relative_velocity,
-        miss_distance,
-        orbiting_body
+        f"{est_diameter_min:.4f} km",
+        f"{est_diameter_max:.4f} km",
+        f"{relative_velocity:.4f} km/s",
+        f"{miss_distance:,.2f} km",
+        str(orbiting_body)
     ]
 })
 
 
 st.dataframe(
     summary_df,
-    use_container_width=True,
+    width="stretch",
     hide_index=True
 )
 
@@ -722,17 +722,14 @@ try:
 
     input_data = input_data[FEATURE_COLUMNS]
 
-except Exception as e:
+except Exception:
 
-    st.error("❌ Feature matching error")
+    st.error("❌ Feature matching error.")
 
-    st.write("Model expects:")
-
-    st.write(FEATURE_COLUMNS)
-
-    st.write("Application created:")
-
-    st.write(input_data.columns.tolist())
+    st.write(
+        "Please check that the features used during training "
+        "match the features created by this application."
+    )
 
     st.stop()
 
@@ -745,7 +742,8 @@ with st.expander("🔍 View Data Sent to the Model"):
 
     st.dataframe(
         input_data,
-        use_container_width=True
+        width="stretch",
+        hide_index=True
     )
 
 
@@ -759,21 +757,24 @@ st.markdown(
 )
 
 
-if st.button("🚀 Predict Hazard"):
+if st.button("🚀 Predict Hazard", width="stretch"):
 
     try:
 
-        # Make prediction
+        # =================================================
+        # MAKE PREDICTION
+        # =================================================
+
         prediction = model.predict(
             input_data
         )[0]
 
 
         # =================================================
-        # RESULT
+        # PREDICTION RESULT
         # =================================================
 
-        if prediction:
+        if bool(prediction):
 
             st.error(
                 "🔴 HAZARDOUS NEO"
@@ -784,7 +785,7 @@ if st.button("🚀 Predict Hazard"):
                 ### ⚠️ Prediction Result
 
                 The model predicts that this
-                Near-Earth Object is **potentially hazardous**.
+                **Near-Earth Object is potentially hazardous.**
                 """
             )
 
@@ -799,7 +800,7 @@ if st.button("🚀 Predict Hazard"):
                 ### ✅ Prediction Result
 
                 The model predicts that this
-                Near-Earth Object is **not hazardous**.
+                **Near-Earth Object is not hazardous.**
                 """
             )
 
@@ -823,26 +824,21 @@ if st.button("🚀 Predict Hazard"):
             probability_df = pd.DataFrame({
 
                 "Class": [
-                    "Not Hazardous",
-                    "Hazardous"
+                    "🟢 Not Hazardous",
+                    "🔴 Hazardous"
                 ],
 
                 "Probability": [
-                    probabilities[0] * 100,
-                    probabilities[1] * 100
+                    f"{probabilities[0] * 100:.2f}%",
+                    f"{probabilities[1] * 100:.2f}%"
                 ]
 
             })
 
 
-            probability_df["Probability"] = (
-                probability_df["Probability"].round(2)
-            )
-
-
             st.dataframe(
                 probability_df,
-                use_container_width=True,
+                width="stretch",
                 hide_index=True
             )
 
@@ -870,14 +866,15 @@ if st.button("🚀 Predict Hazard"):
                 )
 
 
-    except Exception as e:
+    except Exception:
 
         st.error(
-            "❌ Prediction Error"
+            "❌ Prediction could not be completed."
         )
 
-        st.code(
-            str(e)
+        st.info(
+            "Please check that the deployed model and "
+            "the application use the same feature structure."
         )
 
 
@@ -888,7 +885,9 @@ if st.button("🚀 Predict Hazard"):
 st.markdown("---")
 
 st.markdown(
-    '<div class="footer">🌍 NEO Hazard Prediction System | '
-    'Machine Learning Project | Random Forest Classifier</div>',
+    '<div class="footer">'
+    '🌍 NEO Hazard Prediction System | '
+    'Machine Learning Project | Random Forest Classifier'
+    '</div>',
     unsafe_allow_html=True
 )
