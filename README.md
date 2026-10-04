@@ -12,6 +12,15 @@ Near-Earth Objects need to be monitored because some objects may potentially pos
 
 ---
 
+# 🚀 Live Demo
+
+The Machine Learning model is deployed using Streamlit.
+
+**Live Application:**  
+https://neohazardprediction-mlproject.streamlit.app/
+
+---
+
 ## 🎯 Project Objective
 
 The main objective of this project is to develop a Machine Learning model that can classify Near-Earth Objects into two categories:
@@ -343,15 +352,6 @@ Non-Hazardous
 
 ---
 
-# 🚀 Live Demo
-
-The Machine Learning model is deployed using Streamlit.
-
-**Live Application:**  
-https://neohazardprediction-mlproject.streamlit.app/
-
----
-
 # 💻 How to Run the Project Locally
 
 ## 1. Clone the Repository
@@ -515,15 +515,6 @@ Streamlit
 
 ---
 
-# 👩‍💻 Author
-
-**Shreya**
-
-B.Tech in Computer Science and Engineering  
-Specialization: Artificial Intelligence and Machine Learning
-
----
-
 # 📜 Conclusion
 
 The **Near-Earth Objects Hazard Prediction System** demonstrates the application of Machine Learning for classifying Near-Earth Objects as hazardous or non-hazardous.
@@ -537,3 +528,12 @@ Multiple Machine Learning classification algorithms were trained and tuned. The 
 Among the approaches tested, the **Random Forest model trained using the downsampled data** produced the best performance, achieving an F1-score of approximately **0.56**.
 
 The final Random Forest model was integrated into a **Streamlit web application**, allowing users to enter Near-Earth Object information and receive a prediction of whether the object is hazardous or non-hazardous.
+
+# 👩‍💻 Author
+
+**Shreya**
+
+B.Tech in Computer Science and Engineering  
+Specialization: Artificial Intelligence and Machine Learning
+
+---
