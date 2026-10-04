@@ -536,4 +536,7 @@ The final Random Forest model was integrated into a **Streamlit web application*
 B.Tech in Computer Science and Engineering  
 Specialization: Artificial Intelligence and Machine Learning
 
+Linkedin:https://www.linkedin.com/in/shreya-arigela
+Github:https://github.com/shreyagoudarigela-maker
+
 ---
