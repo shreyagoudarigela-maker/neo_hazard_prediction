@@ -243,19 +243,16 @@ The final **Downsampled Data** approach was then used to develop the final model
 
 The following F1-scores were obtained when the models were trained and evaluated using the **original data without downsampling**:
 
-| Model               |    F1-Score |
-| ------------------- | ----------: |
-| KNN                 |        0.52 |
-| Naive Bayes         |        0.54 |
-| Decision Tree       |        0.46 |
-| Logistic Regression |        0.36 |
-| Random Forest       |        0.45 |
-|                     |             |
-| AdaBoost            |        0.27 |
-| Gradient Boosting   |        0.27 |
-| XGBoost             |        0.27 |
-
-The remaining model results can be added after final evaluation.
+| Model               | F1-Score |
+| ------------------- | -------: |
+| KNN                 |     0.52 |
+| Naive Bayes         |     0.54 |
+| Decision Tree       |     0.46 |
+| Logistic Regression |     0.36 |
+| Random Forest       |     0.45 |
+| AdaBoost            |     0.27 |
+| Gradient Boosting   |     0.27 |
+| XGBoost             |     0.27 |
 
 ---
 
@@ -275,7 +272,6 @@ The following F1-scores were obtained:
 | AdaBoost            |     0.29 |
 | Gradient Boosting   |     0.34 |
 | XGBoost             |     0.35 |
-|                     |          |
 
 This experiment showed that changing the training class distribution affected the model's performance when evaluated on the original test distribution.
 
@@ -351,8 +347,9 @@ Non-Hazardous
 
 The Machine Learning model is deployed using Streamlit.
 
-**Live Application:**
-(https://neohazardprediction-mlproject.streamlit.app/)
+**Live Application:**  
+https://neohazardprediction-mlproject.streamlit.app/
+
 ---
 
 # 💻 How to Run the Project Locally
@@ -360,13 +357,13 @@ The Machine Learning model is deployed using Streamlit.
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
+git clone https://github.com/shreyagoudarigela-maker/neo_hazard_prediction.git
 ```
 
 ## 2. Open the Project Folder
 
 ```bash
-cd YOUR-REPOSITORY-NAME
+cd neo_hazard_prediction
 ```
 
 ## 3. Create a Virtual Environment
@@ -402,13 +399,15 @@ The application will open in your browser.
 # 📁 Project Structure
 
 ```text
-Near-Earth-Objects-Hazard-Prediction/
+neo_hazard_prediction/
 │
 ├── app.py
 │
-├── model_pipe.pkl
+├── model_pipe (1).pkl
 │
 ├── requirements.txt
+│
+├── runtime.txt
 │
 ├── README.md
 │
@@ -417,12 +416,13 @@ Near-Earth-Objects-Hazard-Prediction/
 
 ### File Description
 
-| File               | Description                                          |
-| ------------------ | ---------------------------------------------------- |
-| `app.py`           | Streamlit application used for NEO hazard prediction |
-| `model_pipe (1).pkl`   | Saved final Machine Learning model/pipeline          |
-| `requirements.txt` | Required Python libraries                            |
-| `README.md`        | Project documentation                                |
+| File                  | Description |
+| --------------------- | ----------- |
+| `app.py`              | Streamlit application used for NEO hazard prediction |
+| `model_pipe (1).pkl`  | Saved final Machine Learning model/pipeline |
+| `requirements.txt`    | Required Python libraries |
+| `runtime.txt`         | Python runtime version used for deployment |
+| `README.md`           | Project documentation |
 
 ---
 
@@ -519,7 +519,7 @@ Streamlit
 
 **Shreya**
 
-B.Tech in Computer Science and Engineering
+B.Tech in Computer Science and Engineering  
 Specialization: Artificial Intelligence and Machine Learning
 
 ---
@@ -535,9 +535,5 @@ Different data approaches were investigated, including training and testing on t
 Multiple Machine Learning classification algorithms were trained and tuned. The results from these experiments were compared using evaluation metrics, with particular importance given to the **F1-score** due to the class imbalance in the dataset.
 
 Among the approaches tested, the **Random Forest model trained using the downsampled data** produced the best performance, achieving an F1-score of approximately **0.56**.
-
-The final Random Forest model was integrated into a **Streamlit web application**, allowing users to enter Near-Earth Object information and receive a prediction of whether the object is hazardous or non-hazardous.
-
-Multiple Machine Learning classification algorithms were trained and compared. After evaluating the different approaches, the **Random Forest model trained using the downsampled data** produced the best performance, achieving an F1-score of approximately **0.56**.
 
 The final Random Forest model was integrated into a **Streamlit web application**, allowing users to enter Near-Earth Object information and receive a prediction of whether the object is hazardous or non-hazardous.
