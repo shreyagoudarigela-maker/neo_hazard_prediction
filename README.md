@@ -251,9 +251,9 @@ The following F1-scores were obtained when the models were trained and evaluated
 | Logistic Regression |        0.36 |
 | Random Forest       |        0.45 |
 |                     |             |
-| AdaBoost            | To be added |
-| Gradient Boosting   | To be added |
-| XGBoost             | To be added |
+| AdaBoost            |        0.27 |
+| Gradient Boosting   |        0.27 |
+| XGBoost             |        0.27 |
 
 The remaining model results can be added after final evaluation.
 
@@ -352,9 +352,7 @@ Non-Hazardous
 The Machine Learning model is deployed using Streamlit.
 
 **Live Application:**
-
-[https://neohazardprediction-mlproject.streamlit.app/](https://neohazardprediction-mlproject.streamlit.app/)
-
+(https://neohazardprediction-mlproject.streamlit.app/)
 ---
 
 # 💻 How to Run the Project Locally
