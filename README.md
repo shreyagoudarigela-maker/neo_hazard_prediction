@@ -420,7 +420,7 @@ Near-Earth-Objects-Hazard-Prediction/
 | File               | Description                                          |
 | ------------------ | ---------------------------------------------------- |
 | `app.py`           | Streamlit application used for NEO hazard prediction |
-| `model_pipe.pkl`   | Saved final Machine Learning model/pipeline          |
+| `model_pipe (1).pkl`   | Saved final Machine Learning model/pipeline          |
 | `requirements.txt` | Required Python libraries                            |
 | `README.md`        | Project documentation                                |
 
