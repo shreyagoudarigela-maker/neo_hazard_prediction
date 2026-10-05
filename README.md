@@ -63,13 +63,13 @@ The project also aims to:
 
 The Streamlit application provides an interactive interface where users can enter the physical and orbital characteristics of a Near-Earth Object.
 
-![NEO Hazard Prediction Interface 1](screenshots/neo_interface_1.png)
+![NEO Hazard Prediction Interface 1](Screenshots/neo_interface_1.png)
 
 ### 🛰️ NEO Hazard Prediction Interface – 2
 
 The application provides a user-friendly interface for entering NEO details and generating a hazard prediction.
 
-![NEO Hazard Prediction Interface 2](screenshots/neo_interface_2.png)
+![NEO Hazard Prediction Interface 2](Screenshots/neo_interface_2.png)
 
 ### 🔮 Prediction Result
 
