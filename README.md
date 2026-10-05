@@ -57,6 +57,26 @@ The project also aims to:
 
 ---
 
+## 📸 Application Screenshots
+
+### 🛰️ NEO Hazard Prediction Interface – 1
+
+The Streamlit application provides an interactive interface where users can enter the physical and orbital characteristics of a Near-Earth Object.
+
+![NEO Hazard Prediction Interface 1](screenshots/neo_interface_1.png)
+
+### 🛰️ NEO Hazard Prediction Interface – 2
+
+The application provides a user-friendly interface for entering NEO details and generating a hazard prediction.
+
+![NEO Hazard Prediction Interface 2](screenshots/neo_interface_2.png)
+
+### 🔮 Prediction Result
+
+The application displays the predicted result based on the input values provided by the user.
+
+![Prediction Result](screenshots/prediction_result.png)
+
 ## 🤖 Machine Learning Models
 
 The following Machine Learning classification algorithms were trained, tuned, and evaluated:
