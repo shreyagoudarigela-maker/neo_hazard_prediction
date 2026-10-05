@@ -396,6 +396,8 @@ The application will open in your browser.
 
 ---
 
+
+
 # 📁 Project Structure
 
 ```text
