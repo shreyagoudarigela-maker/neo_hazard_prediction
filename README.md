@@ -75,7 +75,7 @@ The application provides a user-friendly interface for entering NEO details and 
 
 The application displays the predicted result based on the input values provided by the user.
 
-![Prediction Result](screenshots/prediction_result.png)
+![Prediction Result](Screenshots/output.png)
 
 ## 🤖 Machine Learning Models
 
@@ -536,6 +536,17 @@ Streamlit
 ```
 
 ---
+
+## 🚀 Future Improvements
+
+- Improve the model performance by experimenting with additional Machine Learning and ensemble techniques.
+- Explore advanced methods for handling class imbalance.
+- Continuously update the model using newer Near-Earth Object data.
+- Add more detailed visualizations and prediction insights to the Streamlit application.
+- Improve the user interface and make the application more interactive.
+- Deploy the application on a scalable cloud platform for better performance.
+- Add probability scores along with the final hazardous/non-hazardous prediction.
+
 
 # 📜 Conclusion
 
